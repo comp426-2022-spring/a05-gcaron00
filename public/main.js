@@ -37,9 +37,9 @@ async function flipCoin() {
     const response = await fetch(window.location.origin + "/app/flip/")
     const result = await response.json();
     console.log(result);
-    document.getElementById("oneFlipResult").innerHTML = result.flip;
     document.getElementById("coin").setAttribute("src", "assets/img/" + result.flip + ".png");
-    document.getElementById("oneFlipResultHeader").hidden=false;
+    document.getElementById("oneFlipResult").innerHTML = result.flip;
+    document.getElementById("oneFlipResultHeader").setAttribute("class", "active");
 }
 
 const flips = document.getElementById("flips")
@@ -124,17 +124,17 @@ async function guessFlip(call) {
         const result = await response.json()
 
         
+    
+        document.getElementById("coin2").setAttribute("src", "assets/img/" + result.flip + ".png");  
 
         document.getElementById("call").innerHTML = call
         document.getElementById("flipResult").innerHTML = result.flip
         document.getElementById("guessResult").innerHTML = "You " + result.result;
    
-
-        document.getElementById("coin2").setAttribute("src", "assets/img/" + result.flip + ".png");  
         
-        document.getElementById("guessResultHeader").hidden=false;
-        document.getElementById("flipResultHeader").hidden=false;
-        document.getElementById("callHeader").hidden=false;
+        document.getElementById("guessResultHeader").setAttribute("class", "active");
+        document.getElementById("flipResultHeader").setAttribute("class", "active");
+        document.getElementById("callHeader").setAttribute("class", "active");
         
     } catch (error) {
         console.log(error);
