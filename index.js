@@ -36,7 +36,12 @@ if (help === true) {
 }
 
 if(log === "true"){
-    const WRITESTREAM  = fs.createWriteStream('./log/access.log', { flags: 'a' })
+    const logdir = './log/';
+
+    if (!fs.existsSync(logdir)){
+        fs.mkdirSync(logdir);
+    }
+    const WRITESTREAM  = fs.createWriteStream(logdir+'access.log', { flags: 'a' })
     app.use(morgan('combined', { stream: WRITESTREAM }))
 }
 
