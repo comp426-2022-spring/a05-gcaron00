@@ -2,9 +2,13 @@ div.hidden {
   display: none;
 }
 
-div.active {
-  border: 5px solid red;
+h2.hidden {
+  display: none;
 }
+
+/* div.active {
+  border: 5px solid red;
+} */
 
 img.bigcoin {
   width: 50px;
